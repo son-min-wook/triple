@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.triple.homework.board.mapper.Review_dtlMapper">
+
+	<select id="review_dtlCount" resultType="Integer">
+		SELECT
+			COUNT(*)
+		FROM REVIEW_DTL
+	</select>
+	
+	<select id="imgSeq" resultType="Integer">
+		SELECT
+			MAX(IMG_SQ)
+		FROM REVIEW_DTL
+		WHERE REVIEW_ID = #{review_id}
+	</select>
+	
+	<select id="review_dtlList" parameterType="String" resultType="String">
+		SELECT
+		    IMG_ID
+		FROM REVIEW_DTL
+		WHERE REVIEW_ID = #{review_id}
+	</select>
+	
+	<select id="review_dtlsqList" parameterType="com.triple.homework.board.domain.Review_dtlVO">
+		SELECT
+		*
+		FROM REVIEW_DTL
+		WHERE REVIEW_ID = #{review_id}
+		AND   IMG_SQ = #{img_sq}
+	</select>
+	
+	<insert id="review_dtlInsert" parameterType="com.triple.homework.board.domain.Review_dtlVO">
+	INSERT INTO
+	REVIEW_DTL (REVIEW_ID,IMG_SQ,IMG_ID)
+	VALUES(#{review_id},#{img_sq},#{img_id})
+	</insert>
+	
+	<update id="review_dtlUpdate" parameterType="com.triple.homework.board.domain.Review_dtlVO">
+		UPDATE REVIEW_DTL
+		SET
+		<if test="img_sq != null">
+	       IMG_SQ = #{img_sq},
+	    </if>
+	    WHERE REVIEW_ID = #{review_id}
+	    AND   IMG_ID = #{img_id}
+	</update>
+	
+	<delete id = "review_dtlDelete" parameterType="String">
+		DELETE FROM REVIEW_DTL 
+		WHERE REVIEW_ID = #{review_id}
+	</delete>
+	
+	<delete id = "review_dtlsqDelete" parameterType="String">
+		DELETE FROM REVIEW_DTL 
+		WHERE REVIEW_ID = #{review_id}
+		AND   IMG_ID = #{img_id}
+	</delete>
+</mapper>

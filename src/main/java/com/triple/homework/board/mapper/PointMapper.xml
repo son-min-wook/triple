@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.triple.homework.board.mapper.PointMapper">
+	
+	<select id="pointDetail" parameterType="String" resultType="com.triple.homework.board.domain.Point_hstVO">
+		SELECT
+				*
+		FROM POINT_HST
+		WHERE  USER_ID = #{user_id}
+	</select>
+	
+	<insert id="pointInsert" parameterType="com.triple.homework.board.domain.Point_hstVO">
+		INSERT INTO 
+		POINT_HST (USER_ID, HST_SQ, REVIEW_ID, PLACE_ID, CHANGE_POINT, REVIEW_TM, CHANGE_STATUS)
+		VALUES(#{user_id}, #{hst_sq}, #{review_id}, #{place_id}, #{change_point}, #{review_tm}, #{change_status})
+	</insert>
+
+	<select id="pointSeq" resultType="Integer">
+		SELECT
+			MAX(HST_SQ)
+		FROM POINT_HST
+		WHERE USER_ID = #{user_id}
+	</select>
+
+	
+</mapper>

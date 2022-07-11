@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.triple.homework.board.mapper.PlaceMapper">
+	
+	<select id="placeCount" resultType="Integer">
+		SELECT
+			COUNT(*)
+		FROM PLACE_INFO
+	</select>
+	
+	<select id="placeList" resultType="com.triple.homework.board.domain.Place_infoVO">
+	   SELECT
+				*
+		FROM PLACE_INFO
+		
+	</select>
+	
+	<update id="placeUpdate" parameterType="com.triple.homework.board.domain.Place_infoVO">
+		UPDATE PLACE_INFO
+		SET
+		<if test="place_nm != null">
+	       PLACE_NM = #{place_nm},
+	    </if>
+	    <if test="first_review_id != null">
+	    	FIRST_REVIEW_ID = #{first_review_id}
+	    </if>
+	    WHERE PLACE_ID = #{place_id}
+	</update>
+	
+	
+	<select id="placeDetail" parameterType="String" resultType="com.triple.homework.board.domain.Place_infoVO">
+		SELECT
+				*
+		FROM PLACE_INFO
+		WHERE  PLACE_ID = #{place_id}
+	</select>
+	
+	<insert id="placeInsert" parameterType="com.triple.homework.board.domain.Place_infoVO" useGeneratedKeys="true" keyProperty="place_id">
+		INSERT INTO
+		PLACE_INFO (PLACE_ID, PLACE_NM,FIRST_REVIEW_ID)
+		VALUES(#{place_id},#{place_nm},#{first_review_id})
+	</insert>
+	
+	<delete id="placeDelete" parameterType="String">
+	DELETE FROM PLACE_INFO WHERE PLACE_ID = #{place_id}
+	</delete>
+	
+	<select id="first_reviewer" parameterType="String" resultType="String">
+		SELECT
+		  FIRST_REVIEW_ID
+		FROM PLACE_INFO
+		WHERE PLACE_ID = #{place_id}
+	</select>
+	
+</mapper>

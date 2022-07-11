@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.triple.homework.board.mapper.Review_mstMapper">
+
+	<select id="review_mstCount" resultType="Integer">
+		SELECT
+			COUNT(*)
+		FROM REVIEW_MST
+	</select>
+	
+		<select id="review_mstContent" resultType="String">
+		SELECT
+			REVIEW_TXT
+		FROM REVIEW_MST
+		WHERE REVIEW_ID = #{review_id}
+	</select>
+	
+	<select id="review_mstList" parameterType="String" resultType="com.triple.homework.board.domain.Review_mstVO">
+		SELECT
+		*
+		FROM REVIEW_MST
+		WHERE REVIEW_ID = #{review_id}
+	</select>
+	
+	<select id="review_byplaceList" parameterType="String" resultType="com.triple.homework.board.domain.ReviewVO">
+		SELECT
+		*
+		FROM REVIEW_MST mst
+		INNER JOIN REVIEW_DTL dtl ON mst.REVIEW_ID = dtl.REVIEW_ID
+		WHERE PLACE_ID = #{place_id}
+	</select>
+	
+	<insert id="review_mstInsert" parameterType="com.triple.homework.board.domain.Review_mstVO">
+	INSERT INTO
+	REVIEW_MST (REVIEW_ID,USER_ID,PLACE_ID,REVIEW_TM,REVIEW_TXT)
+	VALUES(#{review_id},#{user_id},#{place_id},#{review_tm},#{review_txt})
+	</insert>
+	
+	<update id="review_mstUpdate" parameterType="com.triple.homework.board.domain.Review_mstVO">
+		UPDATE REVIEW_MST
+		SET
+		<if test="review_tm != null">
+	       REVIEW_TM = #{review_tm},
+	    </if>
+	    <if test="review_txt != null">
+	    	REVIEW_TXT = #{review_txt}
+	    </if>
+	    WHERE REVIEW_ID = #{review_id}
+	</update>
+	
+	<delete id = "review_mstDelete" parameterType="String">
+		DELETE FROM REVIEW_MST WHERE REVIEW_ID = #{review_id}
+	</delete>
+</mapper>
