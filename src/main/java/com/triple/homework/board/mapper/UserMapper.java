@@ -11,7 +11,7 @@ import com.triple.homework.board.domain.User_infoVO;
 public interface UserMapper {
 
 
-	//유저 추가
+	//유저 확인
 	public String userCheck(String user_id) throws Exception;
 		
 	//유저 추가
@@ -20,7 +20,7 @@ public interface UserMapper {
 	//유저 삭제
 	public int userDelete(String user_id) throws Exception;
 
-	//유저 수정
+	//유저 수정(포인트)
 	public int userUpdate(User_infoVO users) throws Exception;
 	
 	//포인트 조회

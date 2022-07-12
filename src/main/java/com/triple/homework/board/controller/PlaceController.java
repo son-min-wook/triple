@@ -1,32 +1,14 @@
 package com.triple.homework.board.controller;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.io.OutputStream;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.io.FilenameUtils;
-import org.apache.commons.lang3.RandomStringUtils;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
-
 import com.triple.homework.board.domain.Place_infoVO;
-import com.triple.homework.board.domain.Review_mstVO;
-import com.triple.homework.board.domain.Review_dtlVO;
-import com.triple.homework.board.domain.Point_hstVO;
-import com.triple.homework.board.domain.User_infoVO;
 
 import com.triple.homework.board.service.PlaceService;
 import com.triple.homework.board.service.Review_dtlService;

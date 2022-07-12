@@ -5,8 +5,6 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.triple.homework.board.service.Review_mstService;
 import com.triple.homework.board.service.UserService;
 
 @Controller

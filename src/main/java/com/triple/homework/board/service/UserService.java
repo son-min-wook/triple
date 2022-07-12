@@ -32,7 +32,7 @@ public class UserService {
 		return userMapper.userUpdate(users);
 	}
 
-	// 유저 포인트 수정
+	// 유저 포인트 조회
 	public Integer userPointService(String user_id) throws Exception {
 		return userMapper.userPoint(user_id);
 	}

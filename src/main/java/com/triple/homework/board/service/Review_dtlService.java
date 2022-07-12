@@ -42,12 +42,12 @@ public class Review_dtlService {
 		return review_dtlMapper.review_dtlUpdate(review);
 	}
 	
-	//id전체삭제
+	//id로 삭제
 	public int review_dtlDeleteService(String review) throws Exception{
 		return review_dtlMapper.review_dtlDelete(review);
 	}
 	
-	//id,sq삭제
+	//댓글id, 사진id로 삭제
 	public int review_dtlsqDeleteService(Review_dtlVO review) throws Exception{
 		return review_dtlMapper.review_dtlsqDelete(review);
 	}

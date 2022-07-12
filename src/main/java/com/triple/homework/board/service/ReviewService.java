@@ -29,23 +29,4 @@ public class ReviewService {
 	public List<ReviewVO> reviewExistService(String place_id,String user_id) throws Exception{
 		return reviewMapper.reviewExist(place_id,user_id);
 	}
-	
-	
-	
-	public List<Review_mstVO> review_mstListService(String review_id) throws Exception{
-		return review_mstMapper.review_mstList(review_id);
-	}
-	
-	public int review_mstInsertService(Review_mstVO review) throws Exception{
-		return review_mstMapper.review_mstInsert(review);
-	}
-	
-	public int review_mstUpdateService(Review_mstVO review) throws Exception{
-		return review_mstMapper.review_mstUpdate(review);
-	}
-	
-	public int review_mstDeleteService(String review) throws Exception{
-		return review_mstMapper.review_mstDelete(review);
-	}
-
 }

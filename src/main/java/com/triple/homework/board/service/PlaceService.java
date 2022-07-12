@@ -14,10 +14,6 @@ public class PlaceService {
 
 	@Resource(name="com.triple.homework.board.mapper.PlaceMapper")
 	PlaceMapper placeMapper;
-
-	public Integer placeCountService() throws Exception{
-		return placeMapper.placeCount();
-	}
 	
 	//장소 목록
 	public List<Place_infoVO> placeListService() throws Exception{
@@ -51,7 +47,4 @@ public class PlaceService {
 	public String first_reviewerService(String place_id) throws Exception{
 		return placeMapper.first_reviewer(place_id);
 	}
-	
-	
-	
 }

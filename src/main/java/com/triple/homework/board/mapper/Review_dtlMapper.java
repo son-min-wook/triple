@@ -23,10 +23,10 @@ public interface Review_dtlMapper {
 	
 	public int review_dtlUpdate(Review_dtlVO review) throws Exception;
 	
-	//id전체삭제
+	//리뷰id로 삭제
 	public int review_dtlDelete(String review_id) throws Exception;
 	
-	//id,sq삭제
+	//리뷰id, img id로 삭제
 	public int review_dtlsqDelete(Review_dtlVO review) throws Exception;
 	
 }

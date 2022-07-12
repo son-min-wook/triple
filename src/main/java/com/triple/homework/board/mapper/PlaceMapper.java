@@ -8,9 +8,6 @@ import com.triple.homework.board.domain.Place_infoVO;
 
 @Repository("com.triple.homework.board.mapper.PlaceMapper")
 public interface PlaceMapper {
-
-		//장소 개수
-		public Integer placeCount() throws Exception;
 		
 		//장소 목록
 		public List<Place_infoVO> placeList() throws Exception;
@@ -29,8 +26,4 @@ public interface PlaceMapper {
 		
 		//첫 댓글작성자
 		public String first_reviewer(String place_id) throws Exception;
-		
-
-		
-		
 }

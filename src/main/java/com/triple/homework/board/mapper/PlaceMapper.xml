@@ -4,17 +4,10 @@
 
 <mapper namespace="com.triple.homework.board.mapper.PlaceMapper">
 	
-	<select id="placeCount" resultType="Integer">
-		SELECT
-			COUNT(*)
-		FROM PLACE_INFO
-	</select>
-	
 	<select id="placeList" resultType="com.triple.homework.board.domain.Place_infoVO">
 	   SELECT
-				*
-		FROM PLACE_INFO
-		
+			*
+	   FROM PLACE_INFO
 	</select>
 	
 	<update id="placeUpdate" parameterType="com.triple.homework.board.domain.Place_infoVO">

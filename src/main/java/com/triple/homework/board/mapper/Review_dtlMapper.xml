@@ -53,7 +53,7 @@
 		WHERE REVIEW_ID = #{review_id}
 	</delete>
 	
-	<delete id = "review_dtlsqDelete" parameterType="String">
+	<delete id = "review_dtlsqDelete" parameterType="com.triple.homework.board.domain.Review_dtlVO">
 		DELETE FROM REVIEW_DTL 
 		WHERE REVIEW_ID = #{review_id}
 		AND   IMG_ID = #{img_id}
